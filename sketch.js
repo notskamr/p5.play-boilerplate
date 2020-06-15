@@ -12,26 +12,28 @@ function setup() {
 
 function draw() {
   background(255,255,255);  
-  collide();
+  
   shape2.x = World.mouseX
   shape2.y = World.mouseY
+  //collide();
+  if(shape1.x - shape2.x < shape1.width/2 + shape2.width/2 &&
+    shape2.x - shape1.x < shape2.width/2 + shape1.width/2 &&
+    shape1.y - shape2.y < shape1.height/2 + shape2.height/2 &&
+    shape2.y - shape1.y < shape2.height/2 + shape1.height/2) {
+  shape1.shapeColor = 'red';
+  shape2.shapeColor = 'lime';
+  
+  
+  }
+  
+  else {
+  shape1.shapeColor = 'grey';
+  shape2.shapeColor = 'grey';
+  
+  }
   drawSprites();
 }
 
-function collide() {
-if(shape1.x - shape2.x < shape1.width/2 + shape2.width/2 &&
-  shape2.x - shape1.x < shape2.width/2 + shape1.width/2 &&
-  shape1.y - shape2.y < shape1.height/2 + shape2.height/2 &&
-  shape2.y - shape1.y < shape2.height/2 + shape1.height/2) {
-shape1.color = 'red';
-shape2.color = 'green';
+//function collide() {
 
-
-}
-
-else {
-shape1.color = 'grey';
-shape2.color = 'grey';
-
-}
-}
+//}
